@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="./images/neelu.webp">
+    <title>Web player: Music for everyone</title>
+    <link rel="stylesheet" href="pro1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+<style>
+    body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: black;
+    color:white;
+    overflow:hidden;
+}
+.main{
+    display: flex;
+    height: 100vh;
+    padding: 0.5rem;
+}
+.sidebar{
+    background-color:black;
+    width: 340px;
+    border-radius: 1rem; 
+    /* 1rem=16px */
+    margin-right: 0.5rem;
+}
+.main-content{
+    background: color #121212;;
+    flex: 1; 
+    /* main box ka size large hua  */
+    border-radius: 1rem; 
+    overflow: auto;
+    /* scroll bar bahut sari content hoga tb dikhayi dega */
+    padding: 0 1.5rem 0 1.5rem;
+}
+.music-player{
+    background-color: black;
+    /* colorpicker */
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 72px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.nav{
+
+    background-color: #121212;
+    border-radius: 1rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    padding: 0.5rem 0.75rem;
+}
+.nav-option{
+    line-height: 2.5rem;
+    padding: 0.5rem 0.75rem;
+}
+.nav-option:hover{
+    opacity:1;
+}
+.nav-option i{
+    font-size: 1.25rem;
+}
+.nav-option a{
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+.library{
+    background-color: #121212;
+    border-radius: 1rem;
+    height: 100%;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem ;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.library-option img{
+    height: 1.25rem;
+    width:1.25rem;
+}
+.icon{
+    font-size: 1rem;
+    margin-right: 1rem;
+    opacity: 1rem;
+    display: flex;
+}
+.icon i{
+    margin-right: 1rem;
+    opacity: 1rem;
+
+}
+.icon i:hover{
+    opacity: 1;
+}
+.box{
+    background-color: #232323;
+    height: 8rem;
+    border-radius: 1rem;
+    margin: 0.75rem 0 1rem 0;
+    padding: 1rem 1rem;
+}
+.box-p1{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.box-p2{
+    font-size: 0.75rem;
+    opacity: 0.7rem;
+}
+.badge{
+    background-color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 0.25rem 1 rem;
+    font-weight: 700;
+    margin: 0.5rem;
+    height: 2rem;
+    width:fit-content;
+}
+.sticky-nav img{
+    height: 1.25rem;
+    width: 1.25rem;
+   
+}
+.sticky-nav{
+    position: sticky;
+    background-color: #121212;
+    top:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    z-index: 10;
+    /* esse upper se overlap nhi hogi */
+}
+.sticky-nav-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.sticky-nav-option button{
+    margin-left: 1rem;
+
+}
+.sticky-nav-option i{
+    margin: 0.75rem;
+}
+.dark-badge{
+    background-color: #000;
+    color: white;
+}
+@media(max-width:1000px){
+    .hide{
+        display: none;
+    }
+}
+.card img{
+    height: 150px;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.card{
+    background-color: #232323;
+    width: 150px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+.cards-containers{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 1rem; */
+
+}
+.card-title{
+    font-weight: 600;
+}
+.card-info{
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+.cards-contain{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer{
+    height:300px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+.line{
+    height: 90%;
+    width:30%;
+    border: 1px solid white;
+    opacity: 0.4;
+}
+.music-player{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.album{
+    width: 25%;
+}
+.player{
+    width: 50%;
+}
+.control{
+    width: 25%;
+}
+.player-control-icon{
+    height: 1rem;
+    margin-right: 2rem;
+    opacity: 0.8;
+}
+.player-control-icon:hover{
+    opacity: 1;
+
+}
+.player-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress-bar{
+    width: 40%;
+    appearance: none;
+    /* jo bydefault hoti hai usme eske through changes kr skte hai */
+    cursor: pointer;
+}
+.progress-bar::-webkit-slider-runnable-track{
+    background-color: #ddd;
+    border-radius: 100px;
+    height: 0.75rem;
+
+}
+.progress-bar::-webkit-slider-thumb{
+    height: 1rem;
+    width: 1rem;
+    appearance: none;
+    background-color: #1bd760;
+    border-radius: 50%;
+    margin-top: -4px;
+    /* upper side aa jayega */
+}
+</style>
+
+</head>
+<body>
+   <div class="main">
+    <div class="sidebar">
+        <div class="nav">
+        <div class="nav-option" style="opacity: 1;">
+            <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+                <div class="nav-option">
+                   <i class="fa-solid fa-magnifying-glass"></i>
+                
+            
+                <a href="#">Search</a>
+            </div>
+        </div>
+        <div class="library">
+            <div class="options">
+                <div class="library-option">
+                    <img src="./images/spotify.png ">
+                            <a href="#">Your library</a>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+            </div>
+            <div class="lib-box">
+                <div class="box">
+                    <p class="box-p1">Create your first playlist</p>
+                    <p class="box-p2">it's easy. we'll help you</p>
+                    <button class="badge">Create playlist</button>
+            
+                </div>
+                <div class="box">
+                    <p class="box-p1">Find some podcaste to follow</p>
+                    <p class="box-p2">we'll keep you updated on new episode</p>
+                    <button class="badge">Browse podcaste</button>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="sticky-nav">
+            <div class="sticky-nav-icon">
+            <img src="./images/left1.png">
+            <img src="./images/right1.png" class="hide">
+        </div>
+        <div class="sticky-nav-option">
+            <button class="badge">Explore premium</button>
+            <button class="badge dark-badge"><i class="fa-solid fa-circle-down" style="margin-right: 5px;"></i>Install App</button>
+            <i class="fa-regular fa-user"></i>
+        </div>
+        </div>
+       
+            <h2>Recently played</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="./images/top82.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+            </div>
+            <h2>Trending now near you</h2>
+            <div class="cards-containers">
+            
+            <div class="card">
+                    <img src="./images/top2.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top4.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top5.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top6.webp">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top10.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top8.jpg">
+                    <p class="card-title">Top 50-global</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+            </div>
+            <h2>Featured charts</h2>
+            <div class="cards-contain">
+                <div class="card">
+                    <img src="./images/top12.jpg">
+                    <p class="card-title">Top 50-india</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top11.jpg">
+                    <p class="card-title">Top 50-india</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+                <div class="card">
+                    <img src="./images/top15.webp">
+                    <p class="card-title">Top 50-india</p>
+                    <p class="card-info">your daily update of the most played tracks...</p>
+                </div>
+            </div>
+                <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+                <div class="footer">
+                    <div class="line"></div>
+                </div>
+            
+    <div class="music-player">
+        <div class="album"></div>
+        <div class="player">
+            <div class="player-control">
+                <img src="" class="player-control-icon">
+                <img src="" class="player-control-icon">
+                <img src="" class="player-control-icon">
+                <img src="" class="player-control-icon">
+                <img src="" class="player-control-icon">
+            </div>
+            <div class="playback-bar">
+                <span class="curr-time">00:00</span>
+                <input type="range" min="0" max="100" class="progress-bar" step="1">
+                <span class="tot-time">3:00</span>
+            </div>
+        </div>
+        <div class="control"></div>
+    </div>
+    
+   </div>
+</body>
+</html>
