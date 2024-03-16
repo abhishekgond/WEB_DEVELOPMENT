@@ -26,6 +26,16 @@ console.log(34!=34);
 // 5.String Operater In Java Script 
 let naam = "Abhishek kumar Gond ";
 console.log(naam);
+console.log(5<<1);
+console.log(5>>1);
+// 6.Unary Operater In JavaScript 
+let num = 45;
+console.log(++num);
+// 7. Ternery operater In Java Script 
+var Terneary_String = (4>5)?"true":"false";
+console.log(Terneary_String);
+// 8.Type Operater 
+console.log(typeof("Abhishek kumra Gond "));
 
 
 
